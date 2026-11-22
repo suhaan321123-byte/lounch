@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --green-50: #f1fbeb;
+    --green-100: #e6f7e0;
+    --green-200: #cdefc0;
+    --green-300: #a8e294;
+    --green-400: #82d36b;
+    --green-500: #5fbf4d;
+    --green-600: #43a434;
+    --green-700: #33822a;
+    --green-800: #2a6623;
+    --green-900: #245220;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  /* Animated light gradient for the publish button */
+  .publish-btn-gradient {
+    background: linear-gradient(
+      120deg,
+      #e6f7e0 0%,
+      #cdefc0 25%,
+      #a8e294 50%,
+      #cdefc0 75%,
+      #e6f7e0 100%
+    );
+    background-size: 300% 300%;
+    animation: gradientShift 6s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .fade-enter {
+    opacity: 0;
+  }
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 900ms ease-in-out;
+  }
+  .fade-exit {
+    opacity: 1;
+  }
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 900ms ease-in-out;
+  }
+
+  @keyframes floatBlob {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(30px, -40px) scale(1.05);
+    }
+    66% {
+      transform: translate(-25px, 25px) scale(0.97);
+    }
+  }
+  .animate-float-blob {
+    animation: floatBlob 18s ease-in-out infinite;
+  }
+
+  @keyframes pulseRing {
+    0% {
+      transform: scale(0.95);
+      opacity: 0.55;
+    }
+    70% {
+      transform: scale(1.25);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+  }
+  .animate-pulse-ring {
+    animation: pulseRing 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes riseIn {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-rise-in {
+    animation: riseIn 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes countPop {
+    0% {
+      opacity: 0;
+      transform: scale(0.4);
+    }
+    40% {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
