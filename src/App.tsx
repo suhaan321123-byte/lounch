@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Rocket } from 'lucide-react';
-import launchVideoUrl from '../Public/box.mp4';
+import launchVideoUrl from '../Public/box-vr2.mp4';
 
 type Phase = 'landing' | 'countdown' | 'video' | 'transition';
 
